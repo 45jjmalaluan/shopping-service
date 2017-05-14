@@ -31,15 +31,15 @@ public class CartServiceImpl implements CartService {
 
     @Override
     public void addProduct(String cartId, String productId, Integer quantity) {
-        Cart cart = cartRepository.getOne(cartId);
-        Product product = productRepository.getOne(productId);
+        Cart cart = cartRepository.findOne(cartId);
+        Product product = productRepository.findOne(productId);
         cart.getItems().add(new Item(product, quantity, product.getPrice(), cart));
         cartRepository.saveAndFlush(cart);
     }
 
     @Override
     public void removeProduct(String cartId, String productId) {
-        Cart cart = cartRepository.getOne(cartId);
+        Cart cart = cartRepository.findOne(cartId);
         for (Item item : cart.getItems()) {
             String itemProductId = item.getProduct().getId();
             if (StringUtils.equals(productId, itemProductId)) {
@@ -51,7 +51,7 @@ public class CartServiceImpl implements CartService {
 
     @Override
     public Order createOrder(String cartId) {
-        Cart cart = cartRepository.getOne(cartId);
+        Cart cart = cartRepository.findOne(cartId);
         Order order = new Order();
         order.setTime(Calendar.getInstance());
         order.setTotal(cart.calculateTotal());

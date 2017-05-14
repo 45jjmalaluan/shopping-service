@@ -28,7 +28,7 @@ class ProductRepositoryTest extends Specification {
 
     def "Find existing product"() {
         when: "using the Repository"
-        Product product = productRepository.getOne("3f04d2ab-3850-4004-bc43-a72ee2a2bad0")
+        Product product = productRepository.findOne("3f04d2ab-3850-4004-bc43-a72ee2a2bad0")
         then: "product is found"
         product.description.equalsIgnoreCase("Samsung Galaxy S8")
         product.price == 1149.95

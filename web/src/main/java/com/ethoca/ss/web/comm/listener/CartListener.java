@@ -38,7 +38,7 @@ public class CartListener {
     @RequestMapping(value = "/{cartId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity<Cart> getOne(@PathVariable("cartId") String cartId) {
-        Cart cart = cartRepository.getOne(cartId);
+        Cart cart = cartRepository.findOne(cartId);
         return new ResponseEntity<>(cart, HttpStatus.OK);
     }
 

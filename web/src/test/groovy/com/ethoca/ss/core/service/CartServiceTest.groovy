@@ -35,10 +35,10 @@ class CartServiceTest extends Specification {
     def setup() {
         Cart newCart = cartRepository.save(new Cart())
         cartId = newCart.id
-        Product product = productRepository.getOne("3f04d2ab-3850-4004-bc43-a72ee2a2bad0")
+        Product product = productRepository.findOne("3f04d2ab-3850-4004-bc43-a72ee2a2bad0")
         productId1 = product.id
         price1 = product.price
-        product = productRepository.getOne("a0add0bb-6153-4c72-852f-5a8dd0816b9a")
+        product = productRepository.findOne("a0add0bb-6153-4c72-852f-5a8dd0816b9a")
         productId2 = product.id
         price2 = product.price
     }
@@ -48,7 +48,7 @@ class CartServiceTest extends Specification {
         cartService.addProduct(cartId, productId1, 1)
         cartService.addProduct(cartId, productId2, 2)
         then: "cart has items"
-        Cart cart = cartRepository.getOne(cartId)
+        Cart cart = cartRepository.findOne(cartId)
         cart.items != null
         cart.items.size() > 0
         and: "cart total item amount is correct"
@@ -62,13 +62,13 @@ class CartServiceTest extends Specification {
         cartService.addProduct(cartId, productId2, 2)
 
         when: "cart has items"
-        Cart cart = cartRepository.getOne(cartId)
+        Cart cart = cartRepository.findOne(cartId)
         then: "cart total item amount is correct"
         cart.calculateTotal() == (price1 * 1) + (price2 * 2)
 
         when: "using the Service to remove product from cart"
         cartService.removeProduct(cartId, productId1)
-        cart = cartRepository.getOne(cartId)
+        cart = cartRepository.findOne(cartId)
         then: "cart still have an item"
         cart.items != null
         cart.items.size() > 0

@@ -31,7 +31,7 @@ public class ProductListener {
     @RequestMapping(value = "/{productId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity<Product> getOne(@PathVariable("productId") String productId) {
-        Product product = productRepository.getOne(productId);
+        Product product = productRepository.findOne(productId);
         return new ResponseEntity<>(product, HttpStatus.OK);
     }
 }

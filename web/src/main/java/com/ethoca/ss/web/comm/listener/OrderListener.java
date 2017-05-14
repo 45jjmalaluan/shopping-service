@@ -33,7 +33,7 @@ public class OrderListener {
     @RequestMapping(value = "/{orderId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity<Order> getOne(@PathVariable("orderId") String orderId) {
-        Order order = orderRepository.getOne(orderId);
+        Order order = orderRepository.findOne(orderId);
         return new ResponseEntity<>(order, HttpStatus.OK);
     }
 
