@@ -19,3 +19,7 @@ dependencies {
     // spring
     compile "$springframeworkBootGroup:spring-boot-starter-web:$springframeworkBootVersion"
 }
+
+war {
+    archiveName = 'ess' + project.version.toString() + ".war"
+}
