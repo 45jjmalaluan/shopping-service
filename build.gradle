@@ -1,0 +1,32 @@
+allprojects {
+    logger.quiet("### Project: $project.name");
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'groovy'
+
+    sourceCompatibility = 1.7
+
+    ext {
+        // spring
+        springframeworkBootGroup = 'org.springframework.boot'
+        springframeworkBootVersion = '1.5.2.RELEASE'
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        // commons
+        compile 'org.apache.commons:commons-lang3:3.5'
+
+        // test
+        testCompile group: 'junit', name: 'junit', version: '4.11'
+        testCompile 'org.springframework:spring-test:4.3.7.RELEASE'
+        testCompile 'org.spockframework:spock-spring:1.0-groovy-2.4'
+        testCompile "org.codehaus.groovy:groovy-all:2.4.1"
+    }
+}

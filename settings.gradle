@@ -1,0 +1,6 @@
+rootProject.name = 'ethoca-ss'
+
+include 'core'
+
+include 'web'
+

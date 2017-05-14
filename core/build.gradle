@@ -1,0 +1,10 @@
+project.description = 'Ethoca Shopping Service - Core'
+
+dependencies {
+    // spring
+    compile "$springframeworkBootGroup:spring-boot-starter-data-jpa:$springframeworkBootVersion"
+
+    // database
+    compile 'org.postgresql:postgresql:9.4-1206-jdbc41'
+    compile 'org.flywaydb:flyway-core:4.1.2'
+}
