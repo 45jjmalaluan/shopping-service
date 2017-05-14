@@ -21,5 +21,5 @@ dependencies {
 }
 
 war {
-    archiveName = 'ess' + project.version.toString() + ".war"
+    archiveName = 'ess-' + project.version.toString() + ".war"
 }
