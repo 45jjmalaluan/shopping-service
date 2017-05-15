@@ -6,6 +6,8 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -33,7 +35,11 @@ public class Cart implements Serializable {
         id = idParam;
     }
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "cart", cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "cart_item",
+            joinColumns = {@JoinColumn(name = "cart_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "item_id", referencedColumnName = "id")}
+    )
     public List<Item> getItems() {
         return items;
     }

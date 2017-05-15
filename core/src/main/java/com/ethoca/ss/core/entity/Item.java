@@ -23,15 +23,13 @@ public class Item implements Serializable {
 
     private Integer quantity;
 
+    // TODO: Verify if needed
     private BigDecimal price;
 
-    private Cart cart;
-
-    public Item(Product productParam, Integer quantityParam, BigDecimal priceParam, Cart cartParam) {
+    public Item(Product productParam, Integer quantityParam, BigDecimal priceParam) {
         setProduct(productParam);
         setQuantity(quantityParam);
         setPrice(priceParam);
-        setCart(cartParam);
     }
 
     /*
@@ -89,16 +87,6 @@ public class Item implements Serializable {
 
     public void setPrice(BigDecimal priceParam) {
         price = priceParam;
-    }
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "cart_id", referencedColumnName = "id")
-    public Cart getCart() {
-        return cart;
-    }
-
-    public void setCart(Cart cartParam) {
-        cart = cartParam;
     }
 
     @Override

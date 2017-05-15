@@ -24,16 +24,16 @@ public class CartServiceImpl implements CartService {
     private CartRepository cartRepository;
 
     @Autowired
-    private ProductRepository productRepository;
+    private OrderRepository orderRepository;
 
     @Autowired
-    private OrderRepository orderRepository;
+    private ProductRepository productRepository;
 
     @Override
     public void addProduct(String cartId, String productId, Integer quantity) {
         Cart cart = cartRepository.findOne(cartId);
         Product product = productRepository.findOne(productId);
-        cart.getItems().add(new Item(product, quantity, product.getPrice(), cart));
+        cart.getItems().add(new Item(product, quantity, product.getPrice()));
         cartRepository.saveAndFlush(cart);
     }
 

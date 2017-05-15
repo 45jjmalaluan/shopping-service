@@ -24,7 +24,14 @@ The following command will run the app.
 
 * Check the local database if the tables and data have been created after the app have started.
 
+### Running tests
+
 The following command will build the app and run the necessary unit tests.
 `./gradlew clean build`
 
 * The tests depends on the tables that were created from running the app.
+
+### Creating the war file
+
+The following command will build the war file.
+`./gradlew clean war`
