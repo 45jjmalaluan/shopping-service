@@ -18,6 +18,8 @@ dependencies {
 
     // spring
     compile "$springframeworkBootGroup:spring-boot-starter-web:$springframeworkBootVersion"
+
+    compile 'com.fasterxml.jackson.datatype:jackson-datatype-hibernate5:2.8.6'
 }
 
 war {

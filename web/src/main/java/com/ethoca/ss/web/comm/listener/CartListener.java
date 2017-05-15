@@ -51,14 +51,24 @@ public class CartListener {
         return new ResponseEntity<>(cart, header, HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "/{cartId}/product/{productId}/quantity/{quantity}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/{cartId}/product/{productId}/quantity/{quantity}", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseEntity<Void> addProduct(
+    public ResponseEntity<Cart> addProduct(
         @PathVariable("cartId") String cartId,
         @PathVariable("productId") String productId,
         @PathVariable("quantity") Integer quantity) {
-        cartService.addProduct(cartId, productId, quantity);
-        return new ResponseEntity<>(HttpStatus.OK);
+        Cart cart = cartService.addProduct(cartId, productId, quantity);
+        return new ResponseEntity<>(cart, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/{cartId}/product/{productId}/quantity/{quantity}", method = RequestMethod.PUT)
+    @ResponseBody
+    public ResponseEntity<Cart> updateProduct(
+        @PathVariable("cartId") String cartId,
+        @PathVariable("productId") String productId,
+        @PathVariable("quantity") Integer quantity) {
+        Cart cart = cartService.updateProduct(cartId, productId, quantity);
+        return new ResponseEntity<>(cart, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{cartId}/product/{productId}", method = RequestMethod.DELETE)
