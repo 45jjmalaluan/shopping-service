@@ -40,11 +40,17 @@ public class CartServiceImpl implements CartService {
     @Override
     public void removeProduct(String cartId, String productId) {
         Cart cart = cartRepository.findOne(cartId);
-        for (Item item : cart.getItems()) {
+        Item removeCandidate = null;
+        List<Item> items = cart.getItems();
+        for (Item item : items) {
             String itemProductId = item.getProduct().getId();
             if (StringUtils.equals(productId, itemProductId)) {
-                cart.getItems().remove(item);
+                removeCandidate = item;
+                break;
             }
+        }
+        if (removeCandidate != null) {
+            items.remove(removeCandidate);
         }
         cartRepository.saveAndFlush(cart);
     }
