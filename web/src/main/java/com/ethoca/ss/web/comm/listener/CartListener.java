@@ -16,7 +16,7 @@ import java.net.URI;
 import java.util.List;
 
 /**
- *
+ * Rest controller class for a cart.
  */
 @Transactional
 @RestController

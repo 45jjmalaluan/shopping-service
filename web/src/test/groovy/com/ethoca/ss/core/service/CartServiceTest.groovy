@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional
 import spock.lang.Specification
 
 /**
- *
+ * Unit test for cart service operations.
  */
 @TestPropertySource(["classpath:application.properties"])
 @ContextConfiguration(classes = [PersistenceConfig.class, CartServiceImpl.class])

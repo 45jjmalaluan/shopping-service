@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
- *
+ * Entity class for an item.
  */
 @Entity
 @Table(name = "item")

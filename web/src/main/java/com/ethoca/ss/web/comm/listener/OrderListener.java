@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- *
+ * Rest controller class for an order.
  */
 @RestController
 @RequestMapping("/v1/orders")

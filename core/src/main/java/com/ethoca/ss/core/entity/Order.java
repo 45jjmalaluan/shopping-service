@@ -13,7 +13,7 @@ import java.util.Calendar;
 import java.util.List;
 
 /**
- *
+ * Entity class for an order.
  */
 @Entity
 @Table(name = "order")

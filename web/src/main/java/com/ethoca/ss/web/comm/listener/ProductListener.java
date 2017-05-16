@@ -12,7 +12,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 /**
- *
+ * Rest controller class for a product.
  */
 @Transactional
 @RestController

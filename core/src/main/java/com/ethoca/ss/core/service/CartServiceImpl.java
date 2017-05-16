@@ -18,7 +18,7 @@ import java.util.Calendar;
 import java.util.List;
 
 /**
- *
+ * Service concrete class for processing cart related operations.
  */
 @Service
 public class CartServiceImpl implements CartService {

@@ -16,7 +16,7 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 /**
- *
+ * Configuration class for a persistence setup.
  */
 @Configuration
 @EnableJpaRepositories({"com.ethoca.ss.core.repository"})

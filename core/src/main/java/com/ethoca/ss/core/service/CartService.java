@@ -4,7 +4,7 @@ import com.ethoca.ss.core.entity.Cart;
 import com.ethoca.ss.core.entity.Order;
 
 /**
- *
+ * Service interface for processing cart related operations.
  */
 public interface CartService {
     Cart addProduct(String cartId, String productId, Integer quantity);

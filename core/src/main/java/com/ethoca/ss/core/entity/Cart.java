@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Entity class for a cart.
  */
 @Entity
 @Table(name = "cart")

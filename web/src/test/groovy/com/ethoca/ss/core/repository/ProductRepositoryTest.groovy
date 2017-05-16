@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional
 import spock.lang.Specification
 
 /**
- *
+ * Unit test for product CRUD operations.
  */
 @TestPropertySource(["classpath:application.properties"])
 @ContextConfiguration(classes = [PersistenceConfig.class])
