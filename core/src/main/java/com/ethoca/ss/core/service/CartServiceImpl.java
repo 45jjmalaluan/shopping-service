@@ -12,6 +12,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -37,7 +38,8 @@ public class CartServiceImpl implements CartService {
     public Cart addProduct(String cartId, String productId, Integer quantity) {
         Cart cart = cartRepository.findOne(cartId);
         Product product = productRepository.findOne(productId);
-        cart.getItems().add(new Item(product, quantity, product.getPrice()));
+        BigDecimal itemPrice = product.getPrice().multiply(new BigDecimal(quantity));
+        cart.getItems().add(new Item(product, quantity, itemPrice));
         return cartRepository.saveAndFlush(cart);
     }
 
@@ -67,7 +69,9 @@ public class CartServiceImpl implements CartService {
         for (Item item : items) {
             String itemProductId = item.getProduct().getId();
             if (StringUtils.equals(productId, itemProductId)) {
+                BigDecimal itemPrice = item.getPrice().multiply(new BigDecimal(quantity));
                 item.setQuantity(quantity);
+                item.setPrice(itemPrice);
                 break;
             }
         }
@@ -76,6 +80,7 @@ public class CartServiceImpl implements CartService {
 
     @Override
     public Order createOrder(String cartId) {
+        /* TODO
         Cart cart = cartRepository.findOne(cartId);
         Order order = new Order();
         order.setTime(Calendar.getInstance());
@@ -84,5 +89,7 @@ public class CartServiceImpl implements CartService {
         items.addAll(cart.getItems());
         order.setItems(items);
         return orderRepository.save(order);
+         */
+        return null;
     }
 }

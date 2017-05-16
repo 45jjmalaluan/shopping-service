@@ -76,6 +76,7 @@ class CartServiceTest extends Specification {
         cart.calculateTotal() == (price2 * 2)
     }
 
+    /*
     def "Place the order"() {
         setup: "using the Service to add products to cart"
         cartService.addProduct(cartId, productId1, 1)
@@ -86,4 +87,5 @@ class CartServiceTest extends Specification {
         then: "order created"
         order.total == (price1 * 1) + (price2 * 2)
     }
+     */
 }

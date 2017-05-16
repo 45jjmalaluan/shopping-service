@@ -23,7 +23,7 @@ public class Item implements Serializable {
 
     private Integer quantity;
 
-    // TODO: Verify if needed
+    // Running total of product price multiplied by quantity
     private BigDecimal price;
 
     public Item(Product productParam, Integer quantityParam, BigDecimal priceParam) {

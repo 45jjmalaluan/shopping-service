@@ -49,7 +49,7 @@ public class Cart implements Serializable {
     public BigDecimal calculateTotal() {
         BigDecimal total = BigDecimal.ZERO;
         for (Item item : getItems()) {
-            BigDecimal value = item.getPrice().multiply(new BigDecimal(item.getQuantity()));
+            BigDecimal value = item.getProduct().getPrice().multiply(new BigDecimal(item.getQuantity()));
             total = total.add(value);
         }
         return total;
